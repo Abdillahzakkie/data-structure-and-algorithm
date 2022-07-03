@@ -38,6 +38,22 @@ class LinkedList {
 		return currentNode;
 	}
 
+	insert(index, value) {
+		if (typeof index !== "number" || typeof value !== "number")
+			throw new TypeError("index and value must be a number");
+
+		if (index === 0) return this.prepend(value);
+		else if (index >= this.length) return this.append(value);
+
+		const newNode = new Node(value);
+		const previousNode = this.traverseToIndex(index - 1);
+		const nextNode = previousNode.next;
+		this.length++;
+
+		previousNode.next = newNode;
+		newNode.next = nextNode;
+	}
+
 	print() {
 		const arrayValues = [];
 		let currentNode = this.head;
