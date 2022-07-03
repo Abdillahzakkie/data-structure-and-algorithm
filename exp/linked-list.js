@@ -26,6 +26,17 @@ class LinkedList {
 		this.head = newNode;
 		this.length++;
 	}
+
+	print() {
+		const arrayValues = [];
+		let currentNode = this.head;
+
+		while (currentNode !== null) {
+			arrayValues.push(currentNode.value);
+			currentNode = currentNode.next;
+		}
+		return arrayValues;
+	}
 }
 
 const myLinkedList = new LinkedList(10);
