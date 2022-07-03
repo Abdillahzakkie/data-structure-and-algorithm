@@ -27,6 +27,17 @@ class LinkedList {
 		this.length++;
 	}
 
+	traverseToIndex(index) {
+		let counter = 0;
+		let currentNode = this.head;
+
+		while (counter !== index && currentNode !== null) {
+			currentNode = currentNode.next;
+			counter += 1;
+		}
+		return currentNode;
+	}
+
 	print() {
 		const arrayValues = [];
 		let currentNode = this.head;
