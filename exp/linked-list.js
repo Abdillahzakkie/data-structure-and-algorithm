@@ -54,6 +54,25 @@ class LinkedList {
 		newNode.next = nextNode;
 	}
 
+	delete(index) {
+		if (typeof index !== "number")
+			throw new TypeError("index and value must be a number");
+		else if (index >= this.length) return this;
+
+		if (index === 0) {
+			const previousNode = this.head;
+			this.head = previousNode.next;
+			this.length--;
+			return this;
+		}
+
+		const previousNode = this.traverseToIndex(index - 1);
+		const nextNode = previousNode.next;
+		previousNode.next = nextNode.next;
+		this.length--;
+		return this;
+	}
+
 	print() {
 		const arrayValues = [];
 		let currentNode = this.head;
