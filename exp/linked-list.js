@@ -19,6 +19,13 @@ class LinkedList {
 		this.length++;
 		return this;
 	}
+
+	prepend(value) {
+		const newNode = new Node(value);
+		newNode.next = this.head;
+		this.head = newNode;
+		this.length++;
+	}
 }
 
 const myLinkedList = new LinkedList(10);
