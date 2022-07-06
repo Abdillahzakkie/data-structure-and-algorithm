@@ -26,6 +26,23 @@ class Stack {
 		return this;
 	}
 
+	pop() {
+		const leadNode = this.top;
+
+		if (this.length === 0) return null;
+		if (this.top === this.bottom) {
+			this.top = null;
+			this.bottom = null;
+			this.length = 0;
+			return leadNode;
+		}
+
+		const childNode = this.top.next;
+		this.top = childNode;
+		this.length -= 1;
+		return leadNode;
+	}
+
 	print() {
 		const data = [];
 		let currentNode = this.top;
