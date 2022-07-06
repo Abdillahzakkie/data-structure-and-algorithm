@@ -11,4 +11,18 @@ class Stack {
 		this.bottom = null;
 		this.length = 0;
 	}
+
+	peek() {
+		return this.top;
+	}
+
+	push(value) {
+		const newNode = new Node(value);
+		newNode.next = this.top;
+		this.top = newNode;
+
+		if (this.length === 0) this.bottom = this.top;
+		this.length += 1;
+		return this;
+	}
 }
