@@ -25,4 +25,14 @@ class Stack {
 		this.length += 1;
 		return this;
 	}
+
+	print() {
+		const data = [];
+		let currentNode = this.top;
+		while (currentNode) {
+			data.push(currentNode.value);
+			currentNode = currentNode.next;
+		}
+		return data;
+	}
 }
