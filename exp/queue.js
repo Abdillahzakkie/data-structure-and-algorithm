@@ -47,12 +47,14 @@ class Queue {
 	}
 
 	/**
-	 * If the queue is empty, return null. Otherwise, set the first node to the next node, and decrement
-	 * the length
-	 * @returns The lead node is being returned.
+	 * If the queue is empty, return null. If the queue has only one node, set the last node to null. Set
+	 * the first node to the next node in the queue. Decrement the length of the queue. Return the node
+	 * that was removed
+	 * @returns The removed node in the queue.
 	 */
 	dequeue() {
 		if (this.length === 0) return null;
+		if (this.first === this.last) this.last = null;
 		const _leadNode = this.first;
 		this.first = _leadNode.next;
 		this.length--;
@@ -76,11 +78,3 @@ class Queue {
 		return _data;
 	}
 }
-
-const _queue = new Queue();
-_queue.enqueue(10);
-_queue.enqueue(20);
-_queue.enqueue(30);
-_queue.enqueue(40);
-_queue.dequeue();
-_queue.print();
