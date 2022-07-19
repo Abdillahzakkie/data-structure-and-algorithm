@@ -54,4 +54,21 @@ class Queue {
 		this.length--;
 		return _leadNode;
 	}
+
+	/**
+	 * We create an empty array, then we create a variable that points to the first node in the queue,
+	 * then we loop through the queue and push each node's value into the array, then we
+	 * return the array
+	 * @returns The data in the linked list.
+	 */
+	print() {
+		const _data = [];
+		let _currentNode = this.first;
+		while (_currentNode) {
+			_data.push(_currentNode.value);
+			_currentNode = _currentNode.next;
+		}
+		console.log("_data", _data);
+		return _data;
+	}
 }
