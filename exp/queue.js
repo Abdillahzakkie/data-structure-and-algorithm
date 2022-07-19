@@ -27,19 +27,23 @@ class Queue {
 	 * If the queue is empty, set the first and last nodes to the new node, otherwise set the last node's
 	 * next property to the new node and set the last node to the new node.
 	 * @param value - The value to be added to the queue.
-	 * @returns The length of the queue.
+	 * @returns The whole queue.
 	 */
 	enqueue(value) {
 		const _newNode = new Node(value);
-		if (this.length === 0) {
-			this.first = _newNode;
-			this.last = this.first;
-			this.length++;
-			return this.length;
+		switch (this.length) {
+			case 0:
+				this.first = _newNode;
+				this.last = this.first;
+				break;
+
+			default:
+				this.last.next = _newNode;
+				this.last = _newNode;
+				break;
 		}
-		this.last.next = _newNode;
-		this.last = _newNode;
 		this.length++;
+		return this.length;
 	}
 
 	/**
@@ -59,7 +63,7 @@ class Queue {
 	 * We create an empty array, then we create a variable that points to the first node in the queue,
 	 * then we loop through the queue and push each node's value into the array, then we
 	 * return the array
-	 * @returns The data in the linked list.
+	 * @returns The data in the queue
 	 */
 	print() {
 		const _data = [];
@@ -72,3 +76,11 @@ class Queue {
 		return _data;
 	}
 }
+
+const _queue = new Queue();
+_queue.enqueue(10);
+_queue.enqueue(20);
+_queue.enqueue(30);
+_queue.enqueue(40);
+_queue.dequeue();
+_queue.print();
