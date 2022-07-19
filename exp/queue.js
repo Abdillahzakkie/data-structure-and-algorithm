@@ -14,4 +14,12 @@ class Queue {
 		this.last = null;
 		this.length = 0;
 	}
+
+	/**
+	 * Peek() returns the first element in the queue
+	 * @returns The first element in the queue.
+	 */
+	peek() {
+		return this.first;
+	}
 }
