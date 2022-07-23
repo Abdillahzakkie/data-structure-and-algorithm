@@ -1,3 +1,4 @@
+/* A Node is a value and a pointer to the next Node. */
 class Node {
 	constructor(value) {
 		this.value = value;
