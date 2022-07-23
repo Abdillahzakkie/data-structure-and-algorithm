@@ -29,6 +29,11 @@ class LinkedList {
 		return this;
 	}
 
+	/**
+	 * We create a new node, set the new node's next property to the current head, and then set the head
+	 * to the new node.
+	 * @param value - The value of the node we want to add.
+	 */
 	prepend(value) {
 		const newNode = new Node(value);
 		newNode.next = this.head;
