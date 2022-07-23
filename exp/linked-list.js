@@ -6,6 +6,7 @@ class Node {
 	}
 }
 
+/* The LinkedList class is a class that creates a linked list. */
 class LinkedList {
 	constructor(value) {
 		this.head = new Node(value);
@@ -13,6 +14,13 @@ class LinkedList {
 		this.length = 1;
 	}
 
+	/**
+	 * The append function takes in a value and creates a new node with that value. The new node is then
+	 * assigned to the next property of the current tail. The tail is then reassigned to the new node. The
+	 * length of the list is then incremented by 1
+	 * @param value - The value of the node we want to add.
+	 * @returns The linked list
+	 */
 	append(value) {
 		const newNode = new Node(value);
 		this.tail.next = newNode;
